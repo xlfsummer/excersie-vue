@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <main id="app">
+        <h1>基础</h1>
+        按钮1：<button-counter></button-counter><br/>
+        按钮2：<button-counter></button-counter>
+        <h2>多处访问同一数据</h2>
+        <table>
+            <td><list-container></list-container></td>
+            <td><list-container></list-container></td>
+        </table>
+
+        <h2>通过 Prop 向子组件传递数据</h2>
+        <article-list :list="articleList"></article-list>
+
+        <h2>通过事件向父组件传递数据</h2>
+
+        <!-- @timer-recorder-record="record.push(($event||'someone') + ' record.')" -->
+        <!-- @timer-recorder-clear="record = []" -->
+        <time-recorder v-on:cus="record=[]"
+        ></time-recorder>
+    </main>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
