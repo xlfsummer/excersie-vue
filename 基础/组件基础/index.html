@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .panel33{
+            display: grid;
+            width: 200px;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+        }
+        .panel33 label{
+            border: 0.5px solid #eee;
+        }
+
+        .arrow{
+            width: 10px;
+            height: 30px;
+            box-sizing: border-box;
+            color: crimson;
+            border-top: 0 solid;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 30px solid;
+            margin: 80px;
+            transition: .5s;
+        }
+    </style>
 </head>
 <body>
     <main id="app">
@@ -22,10 +46,17 @@
 
         <h2>通过事件向父组件传递数据</h2>
 
-        <!-- @timer-recorder-record="record.push(($event||'someone') + ' record.')" -->
-        <!-- @timer-recorder-clear="record = []" -->
-        <time-recorder v-on:cus="record=[]"
-        ></time-recorder>
+        <time-recorder></time-recorder>
+
+
+        <h2>在组件上使用 <code>v-model</code></h2>
+        <div class="arrow" :style="{transform: 'rotate('+ direction +')'}"></div>
+        <direction-selector v-model="direction"></direction-selector>
+
+        <h2>插槽分发</h2>
+        <card-block>sadfaf</card-block>
+        <card-block><list-container></list-container></card-block>
+        <card-block><time-recorder></time-recorder></card-block>
     </main>
 
 

@@ -53,11 +53,11 @@ Vue.component("time-recorder", {
     }),
     template: `
     <div>
+        <time-recorder-clear-btn @timer-recorder-clear="record=[]"></time-recorder-clear-btn>
         <ul>
             <li v-for="r in record">{{r}}</li>
+            <time-recorder-record-btn @timer-recorder-record="record.push($event)"></time-recorder-record-btn>
         </ul>
-        <time-recorder-record-btn></time-recorder-record-btn>
-        <time-recorder-clear-btn></time-recorder-clear-btn>
     </div>
     `,
     components: {
@@ -66,17 +66,71 @@ Vue.component("time-recorder", {
                 author: ""
             }),
             template: `
-               <div><input placeholder="someone" v-model="author"/><button @click="$emit('timer-recorder-record', author)">record</button></div>
+               <div>
+                <input placeholder="someone" v-model="author"/>
+                <button @click="record">record</button>
+                </div>
             `,
+            // <button @click="$emit('timer-recorder-record', author)">record</button>
+            methods: {
+                record() {
+                    this.$emit('timer-recorder-record', this.author);
+                    this.author = "";
+                }
+            }
         },
         "time-recorder-clear-btn": {
             // template: `<button @click="$emit('timer-recorder-clear')">clear all</button>`
-            template: `<button @click="$emit('cus')">clear all</button>`
+            template: `<button @click="$emit('timer-recorder-clear')">clear all</button>`
         }
     }
+});
+
+
+Vue.component("direction-selector", {
+    data: function () {
+        return {
+            name: "direction" + new Date(),
+            value: "0deg"
+        };
+    },
+    template: `
+        <div class="panel33">
+            <label>↖<input :name="name" v-model="value" type="radio" value="-45deg"/></label>
+            <label>↑<input :name="name" v-model="value" type="radio" value="0deg"/></label>
+            <label>↗<input :name="name" v-model="value" type="radio" value="45deg"/></label>
+
+            <label>←<input :name="name" v-model="value" type="radio" value="-90deg"/></label>
+            <label>·<input :name="name" v-model="value" type="radio" value="0deg"/></label>
+            <label>→<input :name="name" v-model="value" type="radio" value="90deg"/></label>
+
+            <label>↙<input :name="name" v-model="value" type="radio" value="-135deg"/></label>
+            <label>↓<input :name="name" v-model="value" type="radio" value="180deg"/></label>
+            <label>↘<input :name="name" v-model="value" type="radio" value="135deg"/></label>
+        </div>
+    `,
+    watch: {
+        ["value"]() {
+            this.$emit("input", this.value);
+        }
+    },
+});
+
+//插槽分发
+Vue.component("card-block", {
+    data() {
+        return {
+            style: {
+                border: "1px solid #eee",
+                boxShadow: "0 5px 10px rgba(0,0,0,.3)",
+                padding: "20px",
+                margin: "20px",
+            }
+        }
+    },
+    template: `<div class="block" :style="style"><slot></slot></div>`
 })
 
-debugger;
 new Vue({
     el: "#app",
     data: {
@@ -85,6 +139,7 @@ new Vue({
             { title: "十万个大米先生", date: "2017-12-21 12:23:12" },
             { title: "今天的卫宫和他的猫", date: "2018-06-25 08:17:07" },
             { title: "博弈论中的 Visual Studio Code 与 Coca cola ", date: "8012-06-05 13:35:42" }
-        ]
+        ],
+        direction: 0,
     }
 });
