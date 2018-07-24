@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <main class="app">
+        <base-input :id="13" label="输入一个值" v-model="inputValue"></base-input>
+        <pre v-text="inputValue"></pre>
+
+        <table border="1">
+            <tr is="table-row" :column-count="3"></tr>
+            <tr is="table-row" :column-count="4"></tr>
+            <tr is="table-row" :column-count="2"></tr>
+        </table>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
