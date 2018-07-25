@@ -6,13 +6,19 @@ import Person from "./lib/Person.js"
 import NonPropAttr from "./component/NonPropAttr.js"
 import CustomCheckbox from "./component/CustomCheckbox.js"
 import TransparentInput from "./component/TransparentInput.js"
+import TestSync from "./component/TestSync.js"
 
 new Vue({
     el: ".app",
     data: {
         inputValue: "",
         xiaomin: new Person("xiaomin", 15),
-        checkboxValue: true
+        checkboxValue: true,
+        syncValue: "sync",
+        syncObj: {
+            title: "hello",
+            description: "description"
+        }
     },
     components: {
         BaseInput,
@@ -21,6 +27,7 @@ new Vue({
         NonPropAttr,
         CustomCheckbox,
         TransparentInput,
+        TestSync
     },
     methods: {
         log() { console.log.apply(this, arguments); }

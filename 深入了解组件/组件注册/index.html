@@ -51,7 +51,7 @@
         </details>
 
         <details>
-            <summary>透明化的 Input</summary>
+            <summary><strong>透明化的 Input</strong></summary>
             <p>使用 $attrs, $listeners, v-bind, v-on </p>
             <transparent-input
                 label="看似正常的 input"
@@ -60,6 +60,19 @@
                 @input="log"
                 @focus="log"
             ></transparent-input>
+        </details>
+
+        <details>
+            <summary><strong>同步属性</strong></summary>
+            {{syncValue}}<br/>
+            <test-sync
+                v-bind.sync="syncObj"
+                v-bind:value.sync="syncValue"
+            ></test-sync>
+            <ul>
+                <li>last 5: {{syncObj.title}}</li>
+                <li>last 10: {{syncObj.description}}</li>
+            </ul>
         </details>
 
     </main>
