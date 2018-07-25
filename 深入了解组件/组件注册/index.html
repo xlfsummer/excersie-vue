@@ -5,17 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main class="app">
+        <h2>组件 import</h2>
         <base-input :id="13" label="输入一个值" v-model="inputValue"></base-input>
         <pre v-text="inputValue"></pre>
 
-        <table border="1">
-            <tr is="table-row" :column-count="3"></tr>
-            <tr is="table-row" :column-count="4"></tr>
-            <tr is="table-row" :column-count="2"></tr>
-        </table>
+        <details>
+            <summary><strong>is调用组件</strong></summary>
+            <table border="1">
+                <tr is="table-row" :column-count="3"></tr>
+                <tr is="table-row" :column-count="4"></tr>
+                <tr is="table-row" :column-count="2"></tr>
+            </table>
+        </details>
+
+        <details>
+            <summary><strong>属性校验</strong></summary>
+            <prop-valid
+                :a-number="40"
+                :a-string="&quot;abc&quot;"
+                :a-object="{a: 5}"
+                :a-number-or-string="40"
+                :a-person="xiaomin"
+                :an-odd="3">
+            </prop-valid>
+        </details>
+
+        <details>
+            <summary><strong>非 Prop 的特性</strong></summary>
+            <p>特性会直接传到模板的根元素 并覆盖模板中定义的值</p>
+            <non-prop-attr
+                style="color: green"
+                title="title"
+                data-tag="非 Prop 的特性 tag"
+            ></non-prop-attr>
+        </details>
+
+        <details>
+            <summary><strong>自定义组件的 model</strong></summary>
+            <custom-checkbox v-model="checkboxValue"></custom-checkbox>
+            {{checkboxValue}}
+        </details>
+
+        <details>
+            <summary>透明化的 Input</summary>
+            <p>使用 $attrs, $listeners, v-bind, v-on </p>
+            <transparent-input
+                label="看似正常的 input"
+                label2="column-count"
+                placeholder="输入内蓉触发事件"
+                @input="log"
+                @focus="log"
+            ></transparent-input>
+        </details>
+
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script type="module" src="./script.js"></script>

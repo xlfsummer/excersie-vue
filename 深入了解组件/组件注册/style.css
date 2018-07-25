@@ -1,0 +1,13 @@
+[data-tag]{
+}
+
+[data-tag]::before{
+    content: attr(data-tag);
+    display: inline-block;
+    background: green;
+    border-radius: 5px;
+    margin: 0 5px;
+    color: #fff;
+    padding: 5px;
+    font: 50%;
+}
