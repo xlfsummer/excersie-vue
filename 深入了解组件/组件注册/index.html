@@ -75,11 +75,17 @@
             </ul>
         </details>
 
-        <details>
-            <summary><strong>插槽</strong></summary>
-            <test-slot></test-slot>
-        </details>
 
+        <test-slot summary="插槽">
+            默认插槽内容
+        </test-slot>
+
+        <test-slot>
+            <template slot="summay">
+                <strong>具名插槽</strong>
+            </template>
+            默认插槽自定义内容
+        </test-slot>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script type="module" src="./script.js"></script>

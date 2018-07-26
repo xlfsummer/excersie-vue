@@ -7,6 +7,7 @@ import NonPropAttr from "./component/NonPropAttr.js"
 import CustomCheckbox from "./component/CustomCheckbox.js"
 import TransparentInput from "./component/TransparentInput.js"
 import TestSync from "./component/TestSync.js"
+import TestSlot from "./component/TestSlot.js"
 
 new Vue({
     el: ".app",
@@ -27,7 +28,8 @@ new Vue({
         NonPropAttr,
         CustomCheckbox,
         TransparentInput,
-        TestSync
+        TestSync,
+        TestSlot
     },
     methods: {
         log() { console.log.apply(this, arguments); }
