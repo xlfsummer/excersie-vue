@@ -75,9 +75,9 @@
             </ul>
         </details>
 
-
+        <input v-model="slotContent" />
         <test-slot summary="插槽">
-            默认插槽内容
+            {{slotContent}}
         </test-slot>
 
         <test-slot>
@@ -85,6 +85,17 @@
                 <strong>具名插槽</strong>
             </template>
             默认插槽自定义内容
+        </test-slot>
+
+        <test-slot summary="作用域插槽">
+            <scope-slot>
+                <div slot-scope="scope">
+                <!-- <div slot-scope="{a}"> -->
+                    <p>slot-scope 特性指定一个变量名, 此变量值相当于 scope-slot 组件中 scope 元素的 $attr </p>
+                    <p>可以接受对象解构赋值</p>
+                    {{scope.a}}
+                </div>
+            </scope-slot>
         </test-slot>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>

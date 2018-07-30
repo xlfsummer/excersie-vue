@@ -8,6 +8,7 @@ import CustomCheckbox from "./component/CustomCheckbox.js"
 import TransparentInput from "./component/TransparentInput.js"
 import TestSync from "./component/TestSync.js"
 import TestSlot from "./component/TestSlot.js"
+import ScopeSlot from "./component/ScopeSlot.js"
 
 new Vue({
     el: ".app",
@@ -19,7 +20,8 @@ new Vue({
         syncObj: {
             title: "hello",
             description: "description"
-        }
+        },
+        slotContent: "默认插槽内容",
     },
     components: {
         BaseInput,
@@ -29,7 +31,8 @@ new Vue({
         CustomCheckbox,
         TransparentInput,
         TestSync,
-        TestSlot
+        TestSlot,
+        ScopeSlot
     },
     methods: {
         log() { console.log.apply(this, arguments); }

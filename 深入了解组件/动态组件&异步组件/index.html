@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <h2>动态组件&amp;异步组件</h2>
+        <label><input name="componentSwitch" v-model="contentSwitch" value="1" type="radio">1</label>
+        <label><input name="componentSwitch" v-model="contentSwitch"  value="2" type="radio">2</label>
+
+        <h3>v-if 切换</h3>
+        <async-content1 v-if="contentSwitch == '1'"></async-content1>
+        <async-content2 v-if="contentSwitch == '2'"></async-content2>
+
+        <h3>动态切换</h3>
+        <div :is="componentName"></div>
+
+        <h3>动态切换</h3>
+        <component :is="componentName"></component>
+
+        <h3><code>keep-alive</code> + 动态切换</h3>
+        <!-- cache -->
+        <keep-alive>
+            <component :is="componentName"></component>
+        </keep-alive>
+
+        <h2>异步加载组件</h2>
+        <label>
+            <input type="checkbox" v-model="isAsyncComponentActive"/>
+            显示 async-component
+        </label>
+        <div v-if="isAsyncComponentActive" >
+            <async-component></async-component>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>
+</html>

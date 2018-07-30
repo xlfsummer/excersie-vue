@@ -1,3 +1,4 @@
+/** test Property Validate */
 export default class Person{
     constructor(name, age){
         this.name = name;
