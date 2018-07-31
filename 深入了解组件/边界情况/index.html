@@ -10,6 +10,7 @@
 <body>
     <main class="app">
         <h1>处理边界情况</h1>
+
         <details>
             <summary><h2 style="display: inline;">访问元素、组件<h2></summary>
             <access-parent></access-parent>
@@ -27,26 +28,46 @@
                 </tab-presentor-page>
             </tab-presentor>
         </details>
-
         <details>
-                <summary><h2 style="display: inline;"><h2></summary>
-                <access-parent></access-parent>
-                子元素数据： {{child1Data}}
-                <h3>依赖注入</h3>
-                <tab-presentor>
-                    <tab-presentor-page tab-header="tab1">
-                        lala
-                    </tab-presentor-page>
-                    <tab-presentor-page tab-header="tab2">
-                        lelele
-                    </tab-presentor-page>
-                    <tab-presentor-page tab-header="tab-third-circle">
-                        <div style="width: 50px; height: 50px; background: chocolate; border-radius: 100%;"></div>
-                    </tab-presentor-page>
-                </tab-presentor>
-            </details>
+            <summary><h2 style="display: inline;">程序化的事件监听器</h2></summary>
+            <ul><li v-for="item in eventLoopLog">{{item}}</li></ul>
+        </details>
+        <details>
+            <summary><h2 style="display: inline;">循环引用</h2></summary>
+            <menu-list :list="menuData"></menu-list>
+        </details>
+        <details>
+            <summary><h2 style="display: inline">模板定义</h2></summary>
+            <h3>内联模板</h3>
+            <inline-template inline-template :list="menuData">
+                <div>
+                    <span v-for="{name} in list" style="margin: 10px; text-transform: uppercase">{{name}}</span>
+                </div>
+            </inline-template>
+            <h3>X-Templates</h3>
+            <x-template :list="menuData"></x-template>
+        </details>
+        <details>
+            <summary><h2 style="display: inline;">更新控制</h2></summary>
+            <input type="checkbox" v-model="toggle"/>
+            <static-component inline-template :toggle="toggle">
+                <div v-once>
+                    {{toggle}}
+                    <button @click="update">force update</button>
+                </div>
+            </static-component>
+        </details>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script type="module" src="./script.js"></script>
+
+    <!-- 不限定 [type] 也不限定 <标签名> -->
+    <script type="text/x-template" id="xTemplate">
+        <div>
+            <span v-for="item in list" style="margin: 10px; text-transform: uppercase">
+                {{item.name}}
+            </span>
+        </div>
+    </script>
 </body>
 </html>

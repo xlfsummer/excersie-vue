@@ -3,11 +3,15 @@
         "browser": true,
         "es6": true
     },
+    "globals": {
+        "Vue": false
+    },
     "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
+    "parser": "babel-eslint",
     "rules": {
         "indent": [
             "error",
@@ -24,6 +28,7 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-console": "off"
     }
 }

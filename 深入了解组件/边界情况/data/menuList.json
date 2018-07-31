@@ -1,0 +1,31 @@
+[
+  {
+    "name": "about us",
+    "sub": []
+  },
+  {
+    "name": "product",
+    "sub": [
+      {
+        "name": "phone",
+        "sub": []
+      },
+      {
+        "name": "computer",
+        "sub": []
+      },
+      {
+        "name": "software",
+        "sub": []
+      }
+    ]
+  },
+  {
+    "name": "news",
+    "sub": []
+  },
+  {
+    "name": "contact us",
+    "sub": []
+  }
+]
