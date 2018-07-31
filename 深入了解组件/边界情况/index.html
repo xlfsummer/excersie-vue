@@ -9,7 +9,42 @@
 </head>
 <body>
     <main class="app">
+        <h1>处理边界情况</h1>
+        <details>
+            <summary><h2 style="display: inline;">访问元素、组件<h2></summary>
+            <access-parent></access-parent>
+            子元素数据： {{child1Data}}
+            <h3>依赖注入</h3>
+            <tab-presentor>
+                <tab-presentor-page tab-header="tab1">
+                    lala
+                </tab-presentor-page>
+                <tab-presentor-page tab-header="tab2">
+                    lelele
+                </tab-presentor-page>
+                <tab-presentor-page tab-header="tab-third-circle">
+                    <div style="width: 50px; height: 50px; background: chocolate; border-radius: 100%;"></div>
+                </tab-presentor-page>
+            </tab-presentor>
+        </details>
 
+        <details>
+                <summary><h2 style="display: inline;"><h2></summary>
+                <access-parent></access-parent>
+                子元素数据： {{child1Data}}
+                <h3>依赖注入</h3>
+                <tab-presentor>
+                    <tab-presentor-page tab-header="tab1">
+                        lala
+                    </tab-presentor-page>
+                    <tab-presentor-page tab-header="tab2">
+                        lelele
+                    </tab-presentor-page>
+                    <tab-presentor-page tab-header="tab-third-circle">
+                        <div style="width: 50px; height: 50px; background: chocolate; border-radius: 100%;"></div>
+                    </tab-presentor-page>
+                </tab-presentor>
+            </details>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script type="module" src="./script.js"></script>
