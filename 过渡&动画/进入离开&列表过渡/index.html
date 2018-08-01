@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <h1>进入/离开&amp;列表过渡</h1>
+        <fold-block caption="单元素/组件的过渡" open>
+            <transition-runner></transition-runner>
+
+            <h3>过渡的类名</h3>
+            <p>在css中定义类名对应的动画<code>.className-enter, .className-enter-active, .className-leave</code>等</p>
+            <transition-runner name="rotate"></transition-runner>
+
+            <h3>CSS动画</h3>
+            <transition-runner name="css-animate"></transition-runner>
+
+            <h3>自定义过渡的类名</h3>
+            <a href="https://daneden.github.io/animate.css/">Animate.css 库</a>
+
+            <transition-runner
+                enter-active-class="animated rollIn"
+                leave-active-class="animated rollOut">
+            </transition-runner>
+
+            <h3>同时使用过渡和动画</h3>
+            <p>type="animate" 或 "transition"</p>
+            <transition-runner
+                name="transition-animate"
+                type="animate"
+            ></transition-runner>
+
+            <h3>显性的过渡持续时间</h3>
+            <transition-runner
+                :duration="{enter: 1000, leave: 1000}">
+            </transition-runner>
+
+            <h3>Javascript 钩子</h3>
+            <p>查看输出日志</p>
+            <transition-runner
+                @before-enter="log('before-enter')"
+                @enter="log('enter')"
+                @after-enter="log('after-enter')"
+                @enter-cancelled="log('enter-cancelled')"
+
+                @before-leave="log('before-leave')"
+                @leave="log('leave')"
+                @after-leave="log('after-leave')"
+                @leave-cancelled="log('leave-cancelled')"
+            >
+            </transition-runner>
+
+            <p>示例</p>
+
+        </fold-block>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    velocity
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.5/velocity.min.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>
+</html>

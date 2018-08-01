@@ -1,0 +1,109 @@
+@import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1";
+
+body{
+    overflow-x: hidden;
+}
+
+.content-block{
+    display: block;
+    background: #3cc;
+    width: 300px;
+    height: 100px;
+    color: #fff;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 3px;
+    margin: 10px auto
+}
+
+@keyframes blink-right{
+    20%{
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    40%{
+        transform: translateX(40px);
+        opacity: 1;
+    }
+    60%{
+        transform: translateX(60px);
+        opacity: 0;
+    }
+    80%{
+        transform: translateX(80px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* #region default transition class */
+.v-enter{
+    transform: translateX(-500px);
+    opacity: 0;
+}
+.v-leave-to{
+    transform: translateX(100px);
+    opacity: 0;
+}
+.v-enter-active {
+    transition: .3s cubic-bezier(0.19, 1, 0.22, 1);
+    transition-property: transform opacity;
+}
+.v-leave-active {
+    transition: .3s cubic-bezier(0.19, 1, 0.22, 1);
+    transition-property: transform opacity;
+}
+/* #endregion */
+
+/* #region vue custom transition class name */
+.rotate-enter{
+    transform:
+        translateX(-100px)
+        rotate(-1turn);
+    opacity: 0;
+}
+
+.rotate-leave-to{
+    transform:
+        translateX(100px)
+        rotate(1turn);
+    opacity: 0;
+}
+.rotate-enter-active,
+.rotate-leave-active{
+    transition: .3s;
+}
+/* #endregion */
+
+/* #region animate trasition*/
+
+.css-animate-enter-active{
+    animation: blink-right 1s reverse;
+}
+
+.css-animate-leave-active{
+    animation: blink-right 1s;
+}
+/* #endregion */
+
+/* #region transition & animate same time */
+.transition-animate-enter{
+    background: green;
+}
+.transition-animate-enter-active{
+    animation: blink-right 1s reverse;
+}
+.transition-animate-leave-active{
+    animation: blink-right 1s;
+}
+.transition-animate-leave-to{
+    background: red;
+}
+.transition-animate-enter-active,
+.transition-animate-leave-active{
+    transition: 2s;
+}
+/* #endregion */
