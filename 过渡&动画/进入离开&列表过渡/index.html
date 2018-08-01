@@ -10,7 +10,7 @@
 <body>
     <main class="app">
         <h1>进入/离开&amp;列表过渡</h1>
-        <fold-block caption="单元素/组件的过渡" open>
+        <fold-block caption="单元素/组件的过渡">
             <transition-runner></transition-runner>
 
             <h3>过渡的类名</h3>
@@ -55,14 +55,87 @@
             >
             </transition-runner>
 
-            <p>示例</p>
+            <p><a href="https://github.com/julianshapiro/velocity/wiki">Velocity.js</a>示例</p>
+            <transition-runner
+                :css="false"
+                @enter="velocityEnter"
+                @leave="velocityLeave"
+            ></transition-runner>
+        </fold-block>
+        <fold-block caption="初始渲染过渡">
+            <p>有过渡</p>
+            <transition-runner appear>
+            </transition-runner>
+            <p>无过渡</p>
+            <transition-runner>
+            </transition-runner>
+            <transition appear>
+                <div>文字 appear: Hello World!</div>
+            </transition>
+        </fold-block>
+        <fold-block caption="多元素过渡">
 
+            <p>如果元素上 key 相同将没有过渡</p>
+
+            <label>save: <input type="radio" value="save" v-model="mutiElTrans"/></label>
+            <label>submit: <input type="radio" value="submit" v-model="mutiElTrans"/></label>
+            <label>reset: <input type="radio" value="reset" v-model="mutiElTrans"/></label>
+
+            <p>out-in:</p>
+            <transition appear mode="out-in">
+                <button style="display: block" v-if="mutiElTrans === 'save'" key="save">
+                    save
+                </button>
+                <button style="display: block" v-if="mutiElTrans === 'submit'" key="submit">
+                    submit
+                </button>
+                <button style="display: block" v-if="mutiElTrans === 'reset'" key="reset">
+                    reset
+                </button>
+            </transition>
+
+            <p>in-out:</p>
+            <transition appear mode="in-out">
+                    <button style="display: block" v-if="mutiElTrans === 'save'"
+                        key="save">
+                        save
+                    </button>
+                    <button style="display: block" v-if="mutiElTrans === 'submit'"
+                        key="submit">
+                        submit
+                    </button>
+                    <button style="display: block" v-if="mutiElTrans === 'reset'"
+                        key="reset">
+                        reset
+                    </button>
+                </transition>
+
+        </fold-block>
+        <fold-block caption="多组件过渡" >
+            <label>transition-runner: <input type="radio" value="transition-runner" v-model="mutiCompTrans"/></label>
+            <label>reset: <input type="radio" value="fold-block" v-model="mutiCompTrans"/></label>
+
+            <p>不需要 key</p>
+            <div style="padding: 10px; background: #f0f0f0; border-radius: 3px;">
+                <transition mode="out-in">
+                    <component :is="mutiCompTrans" caption="标题" open>
+                        content
+                    </component>
+                </transition>
+            </div>
+        </fold-block>
+        <fold-block caption="列表过渡" open>
+            <h3>列表的进入/离开过渡</h3>
+
+            <button @click="listAdd">add</button>
+            <button @click="listRemove">remove</button>
+            <transition-group tag="div">
+                <span v-for="item in listTrans.list" :key="item" style="display: inline-block; margin: 5px;">{{item}}</span>
+            </transition-group>
         </fold-block>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-
-    velocity
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.5/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.5/velocity.js"></script>
     <script type="module" src="./script.js"></script>
 </body>
 </html>
