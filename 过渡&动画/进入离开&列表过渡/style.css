@@ -55,6 +55,7 @@ body{
 .v-leave-active {
     transition: .3s cubic-bezier(0.19, 1, 0.22, 1);
     transition-property: transform opacity;
+    /* position: absolute; */
 }
 .v-move{
     transition: transform 1s;
@@ -110,3 +111,24 @@ body{
     transition: 2s;
 }
 /* #endregion */
+
+
+.list-complete-item {
+    transition: all .3s;
+    display: inline-block;
+    margin-right: 10px;
+}
+.list-complete-enter, .list-complete-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.list-complete-leave-active {
+    /*
+    * 使用 FLIP 动画
+    * 设置要移除的元素为 absolute, 此项不占位置
+    * 移除动画开始时，计算所有元素动画后的位置，则后一项刚好移动到前一项的位置，
+    * 然后根据开始位置和结束位置，为每个元素加上动画
+    */
+    position: absolute;
+}

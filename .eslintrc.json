@@ -5,7 +5,8 @@
     },
     "globals": {
         "Vue": false,
-        "Velocity": false
+        "Velocity": false,
+        "_": false
     },
     "extends": "eslint:recommended",
     "parserOptions": {

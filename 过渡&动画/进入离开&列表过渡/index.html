@@ -124,18 +124,36 @@
                 </transition>
             </div>
         </fold-block>
-        <fold-block caption="列表过渡" open>
+        <fold-block caption="列表过渡">
             <h3>列表的进入/离开过渡</h3>
-
             <button @click="listAdd">add</button>
             <button @click="listRemove">remove</button>
-            <transition-group tag="div">
-                <span v-for="item in listTrans.list" :key="item" style="display: inline-block; margin: 5px;">{{item}}</span>
+            <button @click="listShuffle">shuffle</button>
+            <transition-group tag="div" name="list-complete">
+                    <!-- display: inline-block; margin: 5px; transition: 1s; -->
+                <span v-for="item in listTrans.list" :key="item" class="list-complete-item">{{item}}</span>
+            </transition-group>
+            <h3>列表的交错过渡</h3>
+            <input placeholder="type to search" v-model="wordList.keyword"/>
+            <transition-group tag="ul">
+                <li v-for="word in wordListSearch" :key="word" v-text="word" class="list-complete-item" style="display: list-item"></li>
             </transition-group>
         </fold-block>
+        <fold-block caption="动态过渡" open>
+            enter duration:
+            <input type="range" :title="dynamicTransition.enter" min="0" max="500" v-model="dynamicTransition.enter"/>
+            leave duration:
+            <input type="range" :title="dynamicTransition.leave" min="0" max="500" v-model="dynamicTransition.leave"/>
+
+            <transition-runner :duration="{enter: dynamicTransition.enter, leave: dynamicTransition.leave}">
+            </transition-runner>
+        </fold-block>
     </main>
+
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.5/velocity.js"></script>
+    <script src="../../node_modules/lodash/lodash.js"></script>
     <script type="module" src="./script.js"></script>
 </body>
 </html>
