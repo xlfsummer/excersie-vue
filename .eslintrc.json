@@ -6,7 +6,9 @@
     "globals": {
         "Vue": false,
         "Velocity": false,
-        "_": false
+        "_": false,
+        "TweenMax": false,
+        "Elastic": false
     },
     "extends": "eslint:recommended",
     "parserOptions": {
