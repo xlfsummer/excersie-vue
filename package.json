@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "http-server -c-1 -i",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@types/velocity-animate": "^1.2.32",
     "babel-eslint": "^8.2.6",
-    "eslint": "^5.2.0"
+    "eslint": "^5.2.0",
+    "http-server": "^0.11.1"
   }
 }
