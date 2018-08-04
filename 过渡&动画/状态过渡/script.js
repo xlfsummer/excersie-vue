@@ -1,6 +1,7 @@
 import Vue from "../../node_modules/vue/dist/vue.esm.browser.js";
 import FoldBlock from "./component/FoldBlock.js";
 import AnimateInteger from "./component/AnimateInteger.js";
+import MaterialButton from "./component/MaterialButton.js";
 // import { Elastic } from "gsap";
 // import { TweenMax } from "gsap";
 
@@ -8,7 +9,8 @@ new Vue({
     el: ".app",
     components: {
         FoldBlock,
-        AnimateInteger
+        AnimateInteger,
+        MaterialButton
     },
     data: {
         num: 0,
