@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>混入</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <h1>混入</h1>
+        <fold-block caption="基础">
+            <simple-presenter>
+                查看日志输出的创建时间
+            </simple-presenter>
+        </fold-block>
+        <fold-block caption="选项合并">
+            在实例选项的 data 和 mixin 的 data 中都定义了 message, 最终显示的是: <br/>
+            {{message}} <br/>
+            在和组件的数据发生冲突时以组件数据优先。
+        </fold-block>
+        <fold-block caption="全局混入">
+            使用 Vue.mixin, 在控制台输出所有组件 created 的时间
+        </fold-block>
+        <fold-block caption="自定义选项合并策略">
+            {{listText}}
+        </fold-block>
+    </main>
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
