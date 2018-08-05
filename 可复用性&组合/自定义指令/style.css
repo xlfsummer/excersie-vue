@@ -1,0 +1,7 @@
+.valid-style[data-is-valid]{
+    color: green;
+}
+
+.valid-style[data-is-error]{
+    color: red;
+}

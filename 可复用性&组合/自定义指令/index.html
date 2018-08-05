@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <h1>自定义指令</h1>
+        <fold-block caption="简介">
+            输入内容, 查看控制台
+            <input v-my-first-directive="inputValue" v-model="inputValue"/>
+        </fold-block>
+        <fold-block caption="函数简写">
+            <input class="valid-style" v-limit:maxlength.byte="10"/>
+        </fold-block>
+    </main>
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
