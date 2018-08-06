@@ -31,10 +31,8 @@ let lenStatistics = function(text){
 let byteLenStatistics = function(text){
     let length = 0;
     for(let char of text){
-        if(char.charCodeAt(0) < 128)
-            length += 1
-        else
-            length += 2
+        length += char.charCodeAt(0) < 128
+            ? 1 : 2;
     }
     return length;
 };
@@ -49,10 +47,10 @@ let createListener = function(el, binding){
         let isValid = validator(input.value, binding.value);
         if(isValid){
            dataset.isValid = "";
-            delete dataset.isError
+            delete dataset.isError;
         }else{
             dataset.isError = "";
-            delete dataset.isValid
+            delete dataset.isValid;
         }
         return false;
     };
@@ -64,7 +62,8 @@ export default  {
 
     inserted(el, binding){
 
-        if(!(el instanceof HTMLInputElement)) throw new Error("v-limit can only work on input tag");
+        if(!(el instanceof HTMLInputElement))
+            throw new Error("v-limit only works on input tag");
 
         let listenerName = "_vLimitListener:" + binding.arg;
         let listener = createListener(el, binding);
