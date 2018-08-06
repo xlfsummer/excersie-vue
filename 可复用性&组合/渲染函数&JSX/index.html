@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>渲染函数&amp;JSX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <h1>渲染函数&amp;JSX</h1>
+        <fold-block caption="基础">
+            <header-tag v-for="level in 6" :level="level">一个h{{level}}标题</header-tag>
+            <list-tag ordered>
+                <li>首先</li>
+                <li>然后</li>
+                <li>最后</li>
+            </list-tag>
+        </fold-block>
+    </main>
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
