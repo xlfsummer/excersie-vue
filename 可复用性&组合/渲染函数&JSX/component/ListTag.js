@@ -11,6 +11,6 @@ export default {
         return createElement(
             tag,
             this.$slots.default
-        )
+        );
     }
-}
+};
