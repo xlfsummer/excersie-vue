@@ -1,6 +1,12 @@
 export default {
+    data(){
+        return {
+            vShowValue: true
+        };
+    },
     render(createElement){
 
+        let vm = this;
         let h3 = content => createElement("h3", {}, [content]);
 
         return createElement(
@@ -132,7 +138,44 @@ export default {
                             }
                         }
                     }
+                ),
+                h3("指令"),
+                createElement(
+                    "input",
+                    {
+                        attrs: {
+                            type: "checkbox",
+                            value: vm.vShowValue
+                        },
+                        directives: [
+                            { // 自带的指令只能使用 v-show v-model 
+                                name: "model",
+                                value: this.vShowValue,
+                                expression: "vShowValue"
+                            }
+                        ]
+                        // on: {
+                        //     input(e){
+                        //         vm.vShowValue = e.currentTarget.value;
+                        //     }
+                        // }
+                    }
+                ),
+                "控制 v-show",
+                createElement(
+                    "div",
+                    {
+                        directives:[
+                            { // 自带的指令只能使用 v-show v-model 
+                                name: "show",
+                                value: this.vShowValue,
+                                expression: "vShowValue",
+                            }
+                        ]
+                    },
+                    ["内容"]
                 )
+
             ]
         );
     }
