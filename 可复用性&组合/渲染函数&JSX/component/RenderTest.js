@@ -145,38 +145,33 @@ export default {
                     {
                         attrs: {
                             type: "checkbox",
-                            value: vm.vShowValue
+                            checked: this.vShowValue
                         },
-                        directives: [
-                            { // 自带的指令只能使用 v-show v-model 
-                                name: "model",
-                                value: this.vShowValue,
-                                expression: "vShowValue"
-                            }
-                        ]
-                        // on: {
-                        //     input(e){
-                        //         vm.vShowValue = e.currentTarget.value;
-                        //     }
-                        // }
+                        on: {
+                            input: this.vShowValueUpdate
+                        }
                     }
                 ),
-                "控制 v-show",
                 createElement(
                     "div",
                     {
                         directives:[
-                            { // 自带的指令只能使用 v-show v-model 
+                            { // 自带的指令只能使用 v-show // @todo 了解 v-model 处理流程
                                 name: "show",
                                 value: this.vShowValue,
                                 expression: "vShowValue",
                             }
                         ]
                     },
-                    ["内容"]
+                    "使用自定义指令形式的 v-show 控制内容显示"
                 )
 
             ]
         );
+    },
+    methods: {
+        vShowValueUpdate(ev){
+            this.$data.vShowValue = ev.currentTarget.checked;
+        }
     }
 };
