@@ -1,13 +1,15 @@
 export default {
     data(){
         return {
-            vShowValue: true
+            vShowValue: true,
+            inputValue: "修改输入，两个相同节点只有一个节点正常更新"
         };
     },
     render(createElement){
 
         let vm = this;
         let h3 = content => createElement("h3", {}, [content]);
+        let div = createElement("div",  this.inputValue);
 
         return createElement(
             "div",
@@ -147,6 +149,13 @@ export default {
                             type: "checkbox",
                             checked: this.vShowValue
                         },
+                        directives: [
+                            {
+                                name: "model",
+                                value: this.vShowValue,
+                                expression: "vShowValue"
+                            }
+                        ],
                         on: {
                             input: this.vShowValueUpdate
                         }
@@ -164,14 +173,35 @@ export default {
                         ]
                     },
                     "使用自定义指令形式的 v-show 控制内容显示"
+                ),
+                h3("约束"),
+                createElement(
+                    "div",
+                    [
+                        createElement(
+                            "input",
+                            {
+                                attrs:{
+                                    value: this.$data.inputValue
+                                },
+                                on: {
+                                    input: this.updateInputValue
+                                }
+                            }
+                        ),
+                        div,
+                        div
+                    ]
                 )
-
             ]
         );
     },
     methods: {
         vShowValueUpdate(ev){
             this.$data.vShowValue = ev.currentTarget.checked;
+        },
+        updateInputValue(ev){
+            this.$data.inputValue = ev.currentTarget.value;
         }
     }
 };
