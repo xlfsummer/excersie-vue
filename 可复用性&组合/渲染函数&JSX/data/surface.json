@@ -1,0 +1,67 @@
+[
+    {
+        "name": "Surface",
+        "op": "Windows RT",
+        "model": "Tablet"
+    },
+    {
+        "name": "Surface Pro",
+        "op": "Windows",
+        "model":"Tablet"
+    },
+    {
+        "name": "Surface 2",
+        "op": "Windows RT",
+        "model": "Tablet"
+    },
+    {
+        "name": "Surface Pro 2",
+        "op": "Windows",
+        "model": "Tablet"
+    },
+    {
+        "name": "Surface 3",
+        "op": "Windows",
+        "model": "Tablet"
+    },
+    {
+        "name": "Surface Pro 3",
+        "op": "Windows",
+        "model": "Tablet"
+    },
+    {
+        "name": "Surface Pro 4",
+        "op": "Windows",
+        "model": "Tablet"
+    },
+    {
+        "name": "Surface Book",
+        "op": "Windows",
+        "model": "Laptop"
+    },
+    {
+        "name": "Hololens",
+        "op": "Windows on Hololens",
+        "model": "AR Headset"
+    },
+    {
+        "name": "Surface Hub",
+        "op": "Windows on Hub",
+        "model": "Enterprise Screen"
+    },
+    {
+        "name": "Surface Studio",
+        "op": "Windows",
+        "model": "All in One"
+    },
+    {
+        "name": "Surface Laptop",
+        "op": "Windows",
+        "model": "Laptop"
+    },
+    {
+        "name": "Surface Go",
+        "op": "Windows",
+        "model": "Tablet"
+    }
+]

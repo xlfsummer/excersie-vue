@@ -5,6 +5,8 @@ import HeaderTag from "./component/HeaderTag.js";
 import ListTag from "./component/ListTag.js";
 import ListWithHeader from "./component/ListWithHeader.js";
 import RenderTest from "./component/RenderTest.js";
+import JsControledTemplate from "./component/JsControledTemplate.js";
+import JsScopeSlotsParent from "./component/JsScopeSlotsParent.js";
 
 
 new Vue({
@@ -14,7 +16,9 @@ new Vue({
         HeaderTag,
         ListTag,
         ListWithHeader,
-        RenderTest
+        RenderTest,
+        JsControledTemplate,
+        JsScopeSlotsParent
     },
     data: {
 
