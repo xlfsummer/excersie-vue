@@ -7,6 +7,7 @@ import ListWithHeader from "./component/ListWithHeader.js";
 import RenderTest from "./component/RenderTest.js";
 import JsControledTemplate from "./component/JsControledTemplate.js";
 import JsScopeSlotsParent from "./component/JsScopeSlotsParent.js";
+import JsSlots from "./component/JsSlots.js";
 
 
 new Vue({
@@ -18,7 +19,8 @@ new Vue({
         ListWithHeader,
         RenderTest,
         JsControledTemplate,
-        JsScopeSlotsParent
+        JsScopeSlotsParent,
+        JsSlots
     },
     data: {
 
