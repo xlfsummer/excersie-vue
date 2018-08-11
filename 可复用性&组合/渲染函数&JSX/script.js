@@ -8,6 +8,7 @@ import RenderTest from "./component/RenderTest.js";
 import JsControledTemplate from "./component/JsControledTemplate.js";
 import JsScopeSlotsParent from "./component/JsScopeSlotsParent.js";
 import JsSlots from "./component/JsSlots.js";
+import JsxSyntax from "./component/JsxSyntax.js";
 
 
 new Vue({
@@ -20,7 +21,8 @@ new Vue({
         RenderTest,
         JsControledTemplate,
         JsScopeSlotsParent,
-        JsSlots
+        JsSlots,
+        JsxSyntax
     },
     data: {
 
