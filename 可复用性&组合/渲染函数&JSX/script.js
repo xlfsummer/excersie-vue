@@ -28,10 +28,21 @@ new Vue({
         FunctionalComponent
     },
     data: {
-        surfaceList: []
+        surfaceList: [],
+        roundDigit: 0
     },
     computed: {
         
+    },
+    filters: {
+        int(number){
+            return (number + "").replace(/\.[\s\S]*$/, "").replace(/^$/, "0");
+        },
+        round(number, digit){
+            return digit > 0
+                ? Math.round(number / 10 ** digit) * 10 ** digit + ""
+                : number.toFixed(-digit);
+        }
     },
     watch: {
       

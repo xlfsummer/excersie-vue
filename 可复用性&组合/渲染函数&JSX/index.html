@@ -35,7 +35,7 @@
             <h3>插槽2</h3>
             <js-slots></js-slots>
         </fold-block>
-        <fold-block caption="JSX" open>
+        <fold-block caption="JSX">
             <jsx-syntax my-tag="标签">
                 <span slot="scopedSlotName" slot-scope="scope">scope 内容: {{scope}}</span>
                 默认插槽内容
@@ -48,6 +48,14 @@
         </fold-block>
         <fold-block caption="插件">
             延后
+        </fold-block>
+        <fold-block caption="过滤器" open>
+            <p>43.55 -> {{"43.55" | int}}</p>
+            <p>
+                {{123456789.123456789 | round(-roundDigit)}}
+                <br/>
+                有效位数：<input type="range" title="roundDigit" v-model="roundDigit" min="-8" max="8"/>
+            </p>
         </fold-block>
     </main>
 
