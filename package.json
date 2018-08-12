@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "http-server -c-1 -i",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:watchJsx": "node \".\\可复用性&组合\\渲染函数&JSX\\build\\watch.js\""
+    "dev:watchJsx": "node \".\\可复用性&组合\\渲染函数&JSX\\build\\watch.js\"",
+    "build:deployment": "webpack --config \".\\工具\\生产环境部署\\webpack.config.js\""
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,8 @@
     "@types/velocity-animate": "^1.2.32",
     "babel-eslint": "^8.2.6",
     "eslint": "^5.2.0",
-    "http-server": "^0.11.1"
-  }
+    "http-server": "^0.11.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "eslintIgnore": ["dist/*"]
 }
