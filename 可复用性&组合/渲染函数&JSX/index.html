@@ -36,10 +36,13 @@
             <js-slots></js-slots>
         </fold-block>
         <fold-block caption="JSX" open>
-            <jsx-syntax></jsx-syntax>
+            <jsx-syntax my-tag="标签">
+                <span slot="scopedSlotName" slot-scope="scope">scope 内容: {{scope}}</span>
+                默认插槽内容
+            </jsx-syntax>
         </fold-block>
     </main>
-    
+
     <script type="module" src="./script.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </body>
