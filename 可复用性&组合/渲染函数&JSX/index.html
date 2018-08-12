@@ -41,9 +41,13 @@
                 默认插槽内容
             </jsx-syntax>
         </fold-block>
+        <fold-block caption="函数式组件">
+            <functional-component :level="3">表格</functional-component>
+            <button @click="deleteRow">shift</button>
+            <functional-component :data="surfaceList"></functional-component>
+        </fold-block>
     </main>
 
     <script type="module" src="./script.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </body>
 </html>

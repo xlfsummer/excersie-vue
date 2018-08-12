@@ -9,6 +9,8 @@ import JsControledTemplate from "./component/JsControledTemplate.js";
 import JsScopeSlotsParent from "./component/JsScopeSlotsParent.js";
 import JsSlots from "./component/JsSlots.js";
 import JsxSyntax from "./component/JsxSyntax.js";
+import FunctionalComponent from "./component/FunctionalComponent.js";
+
 
 
 new Vue({
@@ -22,15 +24,24 @@ new Vue({
         JsControledTemplate,
         JsScopeSlotsParent,
         JsSlots,
-        JsxSyntax
+        JsxSyntax,
+        FunctionalComponent
     },
     data: {
-
+        surfaceList: []
     },
     computed: {
         
     },
     watch: {
       
+    },
+    methods: {
+        deleteRow(){
+            this.$data.surfaceList.shift();
+        }
+    },
+    async created(){
+        this.$data.surfaceList = await (await fetch("./data/surface.json")).json();
     }
 });
