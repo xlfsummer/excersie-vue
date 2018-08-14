@@ -16,3 +16,8 @@ npm run dev:watchJsx
 ```bash
 npm run build:deployment
 ```
+
+编译单文件组件:
+```bash
+npm run build:sfc
+```
