@@ -17,7 +17,7 @@ npm run dev:watchJsx
 npm run build:deployment
 ```
 
-编译单文件组件:
+编译并 watch 单文件组件:
 ```bash
-npm run build:sfc
+npm run build.w:sfc
 ```
