@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "http-server -c-1 -i",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:watchJsx": "node \".\\可复用性&组合\\渲染函数&JSX\\build\\watch.js\"",
-    "build.w:sfc": "webpack --config \".\\工具\\单文件组件\\webpack.config.js\"",
-    "build:deployment": "webpack --config \".\\工具\\生产环境部署\\webpack.config.js\""
+    "dev:watchJsx": "node \"./可复用性&组合/渲染函数&JSX/build/watch.js\"",
+    "build.w:sfc": "webpack --config \"./工具/单文件组件/webpack.config.js\"",
+    "build:deployment": "webpack --config \"./工具/生产环境部署/webpack.config.js\"",
+    "test": "mocha-webpack --webpack-config \"./工具/单元测试/webpack.config.js\" --require \"./工具/单元测试/test/setup.js\" \"./工具/单元测试/test/*.spec.js\" "
   },
   "repository": {
     "type": "git",
@@ -29,15 +29,23 @@
   "devDependencies": {
     "@types/gsap": "^1.19.2",
     "@types/velocity-animate": "^1.2.33",
+    "@vue/test-utils": "^1.0.0-beta.24",
     "babel-eslint": "^8.2.6",
     "css-loader": "^1.0.0",
     "eslint": "^5.3.0",
+    "expect": "^23.5.0",
     "http-server": "^0.11.1",
+    "jsdom": "^11.12.0",
+    "jsdom-global": "^3.0.2",
     "mini-css-extract-plugin": "^0.4.1",
+    "mocha": "^5.2.0",
+    "mocha-webpack": "^2.0.0-beta.0",
+    "null-loader": "^0.1.1",
     "vue-loader": "^15.3.0",
     "vue-template-compiler": "^2.5.17",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-dev-server": "^3.1.5",
+    "webpack-node-externals": "^1.7.2"
   },
   "eslintIgnore": [
     "dist/*"
