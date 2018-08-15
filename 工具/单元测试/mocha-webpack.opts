@@ -1,0 +1,2 @@
+--webpack-config "./工具/单元测试/webpack.config-test.js"
+--require "./工具/单元测试/test/setup.js" "./工具/单元测试/test/*.spec.js"

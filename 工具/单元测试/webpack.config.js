@@ -13,12 +13,7 @@ module.exports = {
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, "dist"),
-
-        // 在源码表中使用绝对路径 (对于在 IDE 中调试时很重要)
-        devtoolModuleFilenameTemplate: "[absolute-resource-path]",
-        devtoolFallbackModuleFilenameTemplate: "[absolute-resource-path]?[hash]"
     },
-    devtool: "inline-cheap-module-source-map",
     externals: [nodeExternals()],
     module: {
         rules: [
@@ -32,16 +27,15 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    // {
-                    //     loader: MiniCssExtractPlugin.loader,
-                    //     options: {
-                    //         // you can specify a publicPath here
-                    //         // by default it use publicPath in webpackOptions.output
-                    //         // https://github.com/webpack-contrib/mini-css-extract-plugin
-                    //     }
-                    // },
-                    // "css-loader"
-                    "null-loader"
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            // you can specify a publicPath here
+                            // by default it use publicPath in webpackOptions.output
+                            // https://github.com/webpack-contrib/mini-css-extract-plugin
+                        }
+                    },
+                    "css-loader"
                 ]
             }
         ]
@@ -54,28 +48,28 @@ module.exports = {
             filename: "style.css",
             // chunkFilename: "[id].css"
         }),
-        // // .eslintignore config can't resolve chinese char folder name
-        // new (class AddEslintIgnorePlugin{
-        //     apply(compiler){
-        //         compiler.hooks.done.tap("AddEslintIgnorePlugin", (stats)=>{
-        //             let output = path.resolve(
-        //                 stats.compilation.outputOptions.path,
-        //                 stats.compilation.outputOptions.filename
-        //             );
-        //             fs.writeFileSync(
-        //                 output,
-        //                 "/* eslint-disable */\r\n"
-        //                 + fs.readFileSync(output, "utf8"),
-        //                 "utf8"
-        //             );
-        //         });
-        //     }
-        // })()
+        // .eslintignore config can't resolve chinese char folder name
+        new (class AddEslintIgnorePlugin{
+            apply(compiler){
+                compiler.hooks.done.tap("AddEslintIgnorePlugin", (stats)=>{
+                    let output = path.resolve(
+                        stats.compilation.outputOptions.path,
+                        stats.compilation.outputOptions.filename
+                    );
+                    fs.writeFileSync(
+                        output,
+                        "/* eslint-disable */\r\n"
+                        + fs.readFileSync(output, "utf8"),
+                        "utf8"
+                    );
+                });
+            }
+        })()
     ],
-    // watch: true,
-    // watchOptions: {
-    //     ignored: [
-    //         "node_modules"
-    //     ]
-    // }
+    watch: true,
+    watchOptions: {
+        ignored: [
+            "node_modules"
+        ]
+    }
 };
