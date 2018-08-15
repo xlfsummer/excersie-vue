@@ -1,13 +1,13 @@
 let path = require("path");
 // webpack4 不再支持 ExtractTextPlugin
 // let ExtractTextPlugin = require("extract-text-webpack-plugin");
-let MiniCssExtractPlugin = require("C:/Users/xlf-s/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/mini-css-extract-plugin");
+let MiniCssExtractPlugin = require("mini-css-extract-plugin");
 let VueLoaderPlugin = require("vue-loader").VueLoaderPlugin;
 const fs = require("fs");
 
 module.exports = {
     mode: "development",
-    entry: path.resolve(__dirname, "script.js"),
+    entry: path.resolve(__dirname, "script.ts"),
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, "dist")
@@ -44,6 +44,13 @@ module.exports = {
                 ]
             }
         ]
+    },
+    // https://github.com/Microsoft/TypeScript-Vue-Starter#typescript-vue-starter
+    resolve: {
+        extensions: [".ts", ".js", ".vue", ".json"],
+        alias: {
+            "vue$": path.resolve(__dirname, "../../node_modules/vue/dist/vue.esm.js")
+        }
     },
     plugins: [
         new VueLoaderPlugin(),

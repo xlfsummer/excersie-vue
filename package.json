@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:watchJsx": "node \".\\可复用性&组合\\渲染函数&JSX\\build\\watch.js\"",
     "build:sfc": "webpack --config \".\\工具\\单文件组件\\webpack.config.js\"",
-    "build:deployment": "webpack --config \".\\工具\\生产环境部署\\webpack.config.js\""
+    "build:deployment": "webpack --config \".\\工具\\生产环境部署\\webpack.config.js\"",
+    "build:ts": "webpack --config \".\\工具\\TypeScript支持\\webpack.config.js\""
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,8 @@
     "eslint": "^5.3.0",
     "http-server": "^0.11.1",
     "mini-css-extract-plugin": "^0.4.1",
+    "ts-loader": "^4.4.2",
+    "typescript": "^3.0.1",
     "vue-loader": "^15.3.0",
     "vue-template-compiler": "^2.5.17",
     "webpack-cli": "^3.1.0"

@@ -16,24 +16,26 @@ export default class Color{
     constructor(rgb: string);
 
     constructor(){
-        let args = ColorParser.normalizeArgs(arguments);
+        this.set(arguments);
+    }
+
+    set(originArgs: IArguments){
+        let args = ColorParser.normalizeArgs(originArgs);
         this.r = args[0];
         this.g = args[1];
         this.b = args[2];
-        return this;
     }
 
-
-    toString(type: "rgb" | "hex" = "rgb"){
+    toString(type: "rgb" | "hex" = "rgb"): string{
         if(type == "rgb"){
             return `rgb(${this.r},${this.g},${this.b})`
         }else{
-            // Array.from();
-            return `#` + this.r.toString(16);
+            let hex = n => n.toString(16).padStart(2, "0");
+            return `#` + hex(this.r) + hex(this.g) + hex(this.b);
         }
     }
 
-    valueOf(){
+    valueOf(): number{
         return this.r << 4 + this.g << 2 + this.b;
     }
 }
