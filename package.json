@@ -8,7 +8,9 @@
     "dev:watchJsx": "node \"./可复用性&组合/渲染函数&JSX/build/watch.js\"",
     "build.w:sfc": "webpack --config \"./工具/单文件组件/webpack.config.js\"",
     "build:deployment": "webpack --config \"./工具/生产环境部署/webpack.config.js\"",
-    "test": " mocha-webpack --opts \"./工具/单元测试/mocha-webpack.opts\""
+    "test": "mocha-webpack --opts \"./工具/单元测试/mocha-webpack.opts\"",
+    "dev.s:baseRounter": "webpack-dev-server --config ./规模化/路由/webpack.config.js"
+
   },
   "repository": {
     "type": "git",
