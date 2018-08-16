@@ -7,11 +7,6 @@
             "type": "npm",
             "script": "build:deployment",
             "problemMatcher": []
-        },
-        {
-            "type": "npm",
-            "script": "build:sfc",
-            "problemMatcher": []
         }
     ]
 }

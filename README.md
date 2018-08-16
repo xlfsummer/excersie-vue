@@ -21,3 +21,8 @@ npm run build:deployment
 ```bash
 npm run build.w:sfc
 ```
+
+运行 工具/单元测试
+```bash
+npm t
+```
