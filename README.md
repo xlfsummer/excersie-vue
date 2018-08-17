@@ -26,3 +26,8 @@ npm run build.w:sfc
 ```bash
 npm t
 ```
+
+运行 规模化/路由
+```bash
+npm run dev.s:baseRounter
+```
