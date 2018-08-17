@@ -1,28 +1,45 @@
 <template>
-    <main>
-        <ul>
-            <li><app-link url="/">主页</app-link></li>
-            <li><app-link url="/about">关于</app-link></li>
-        </ul>
-    </main>
+    <keep-alive>
+        <component :is="page"></component>
+    </keep-alive>
 </template>
 
 <script>
-import AppLink from "./AppLink.vue";
+import AppLink from "./components/AppLink.vue";
+import routeMap from "./routeMap.js";
+import Route from "./lib/Route.js";
+
+import PageIndex from "./pages/PageIndex.vue";
+import PageAbout from "./pages/PageAbout.vue";
 
 export default {
     data(){
         return {
-
-        }
+            route: new Route(),
+        };
+    },
+    provide(){
+        return {
+            route: this.route,
+        };
+    },
+    computed: {
+        page(){
+            let page = routeMap(this.route);
+            return page;
+        },
     },
     components: {
-        AppLink
+        AppLink,
+        PageIndex,
+        PageAbout
+    },
+    created(){
+        this.route.assign(window.location);
     },
     mounted(){
-        window.addEventListener("popstate", function(ev){
-            let state = ev.state;
-            console.log(state);
+        window.addEventListener("popstate", (ev) => {
+           this.route.assign(window.location);
         },false)
     }
 };
