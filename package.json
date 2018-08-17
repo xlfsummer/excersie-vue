@@ -9,8 +9,8 @@
     "build.w:sfc": "webpack --config \"./工具/单文件组件/webpack.config.js\"",
     "build:deployment": "webpack --config \"./工具/生产环境部署/webpack.config.js\"",
     "test": "mocha-webpack --opts \"./工具/单元测试/mocha-webpack.opts\"",
-    "dev.s:baseRounter": "webpack-dev-server --config ./规模化/路由/webpack.config.js"
-
+    "dev.s:baseRounter": "webpack-dev-server --config ./规模化/路由/webpack.config.js",
+    "build:state": "webpack --config ./规模化/状态管理/webpack.config.js"
   },
   "repository": {
     "type": "git",
