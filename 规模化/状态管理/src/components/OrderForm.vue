@@ -1,8 +1,8 @@
 <template>
     <div>
-        <form @submit="handleSubmit" v-show="!!selected">
-            <p><label>id: <br/><input v-model="formData.id" disabled/></label></p>
-            <p><label>goods name: <br/><input v-model="formData.goodsName"/></label></p>
+        <form @submit="handleSubmit($event)" v-show="!!selected">
+            <p><label>id: <br/><input type="text" v-model="formData.id" disabled/></label></p>
+            <p><label>goods name: <br/><input type="text" v-model="formData.goodsName"/></label></p>
             <p><input type="submit" value="提交"/></p>
         </form>
 
@@ -27,9 +27,6 @@ export default {
             },
             selected: false
         };
-    },
-    computed:{
-
     },
     watch: {
         list(list){

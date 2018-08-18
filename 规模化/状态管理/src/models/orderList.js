@@ -15,12 +15,15 @@ class OrderList {
         order.goodsName = "";
         order.selected = false;
         this._list.push(order);
-        Vue.nextTick().then(_ => this.select(id));
+        this.select(id);
     }
 
     update(order) {
         let index = this._list.findIndex(o => o.id === order.id);
-        this._list[index].goodsName = order.goodsName;
+        let updateItem = this._list[index];
+        let goodsName = order.goodsName;
+        Vue.set(this._list, index, {...this._list[index], goodsName});
+        
     }
 
     removeById(id) {
@@ -46,16 +49,15 @@ class OrderList {
     }
 
     select(id) {
-        let selected = this.selected;
-        if (selected) {
-            selected.selected = false;
+        let lastSelectedOrder = this.selected;
+        if (lastSelectedOrder) {
+            Vue.set(this._list, this._list.indexOf(lastSelectedOrder), {selected: false});
         }
 
-        let index = this._list.findIndex(order => {
-            return order.id === id;
-        });
+        let selectedOrder = this.getById(id);
 
-        return this._list[index].selected = true;
+        Vue.set(this._list, this._list.indexOf(selectedOrder), {...selectedOrder, selected: true});
+        return;
     }
 
     get selected() {
