@@ -51,12 +51,13 @@ class OrderList {
     select(id) {
         let lastSelectedOrder = this.selected;
         if (lastSelectedOrder) {
-            Vue.set(this._list, this._list.indexOf(lastSelectedOrder), {selected: false});
+            lastSelectedOrder.selected = false;
+            Vue.set(this._list, this._list.indexOf(lastSelectedOrder), lastSelectedOrder);
         }
 
         let selectedOrder = this.getById(id);
-
-        Vue.set(this._list, this._list.indexOf(selectedOrder), {...selectedOrder, selected: true});
+        selectedOrder.selected = true;
+        Vue.set(this._list, this._list.indexOf(selectedOrder), selectedOrder);
         return;
     }
 

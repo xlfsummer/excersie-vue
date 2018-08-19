@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form @submit="handleSubmit($event)" v-show="!!selected">
+        <form @submit="handleSubmit" v-show="!!selected">
             <p><label>id: <br/><input type="text" v-model="formData.id" disabled/></label></p>
             <p><label>goods name: <br/><input type="text" v-model="formData.goodsName"/></label></p>
             <p><input type="submit" value="提交"/></p>
@@ -40,6 +40,7 @@ export default {
     methods: {
         handleSubmit(e){
             orderList.update({
+                id: this.formData.id,
                 goodsName: this.formData.goodsName
             });
             e.preventDefault();
