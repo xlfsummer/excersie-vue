@@ -1,9 +1,7 @@
-import { isArrayBindingPattern } from "typescript";
-
 export default class Color{
     r: number;
     g: number;
-    b: number
+    b: number;
 
     /** @example new Color(117, 0, 255) */
     constructor(r: number, g: number, b:number);
