@@ -1,3 +1,5 @@
+import { isArrayBindingPattern } from "typescript";
+
 export default class Color{
     r: number;
     g: number;
@@ -16,11 +18,11 @@ export default class Color{
     constructor(rgb: string);
 
     constructor(){
-        this.set(arguments);
+        this.set.apply(this, arguments);
     }
 
-    set(originArgs: IArguments){
-        let args = ColorParser.normalizeArgs(originArgs);
+    set(){
+        let args = ColorParser.normalizeArgs(arguments);
         this.r = args[0];
         this.g = args[1];
         this.b = args[2];
@@ -36,7 +38,7 @@ export default class Color{
     }
 
     valueOf(): number{
-        return this.r << 4 + this.g << 2 + this.b;
+        return this.r << 16 | this.g << 8 | this.b;
     }
 }
 
@@ -76,8 +78,8 @@ class ColorParser{
     }
 
     static hexNumberColor(value: number): INormalColorArgs{
-        let r = value & 0xff0000 >> 4;
-        let g = value & 0x00ff00 >> 2;
+        let r = (value & 0xff0000) >> 16;
+        let g = (value & 0x00ff00) >> 8;
         let b = value & 0x0000ff;
         return [r, g, b];
     }
@@ -85,7 +87,7 @@ class ColorParser{
     static hexStringColor(value: string): INormalColorArgs{
         let r = parseInt(value.substr(1,2), 16);
         let g = parseInt(value.substr(3,2), 16);
-        let b = parseInt(value.substr(7,2), 16);
+        let b = parseInt(value.substr(5,2), 16);
         return [r, g, b];
     }
 

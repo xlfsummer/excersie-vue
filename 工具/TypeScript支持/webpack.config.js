@@ -12,6 +12,7 @@ module.exports = {
         filename: "bundle.js",
         path: path.resolve(__dirname, "dist")
     },
+    target: "web",
     module: {
         rules: [
             {
@@ -49,8 +50,7 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".js", ".vue", ".json"],
         alias: {
-            // "vue$": path.resolve(__dirname, "../../node_modules/vue/dist/vue.esm.js")
-            "vue$": path.resolve(__dirname, "vue.js")
+            "vue$": path.resolve(__dirname, "../../node_modules/vue/dist/vue.esm.js")
         }
     },
     plugins: [

@@ -1,9 +1,6 @@
-import Vue from "./vue.esm.js";
+import Vue from "vue";
 import App from "./App.vue";
 import "./style.css";
-import a from "./a.js";
-
-console.log(a);
 
 new Vue({
     el: "#app",
