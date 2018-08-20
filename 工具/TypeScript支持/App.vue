@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from "./vue.esm.js";
 import Color from "./lib/Color";
 
 export default Vue.extend({
