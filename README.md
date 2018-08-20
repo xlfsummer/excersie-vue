@@ -16,3 +16,8 @@ npm run dev:watchJsx
 ```bash
 npm run build:deployment
 ```
+
+编译 ts demo
+```bash
+npm run build:ts
+```
