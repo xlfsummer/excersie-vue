@@ -14,6 +14,7 @@
         }
     },
     "files": [
+        // ts 无法识别 .vue 文件, 所以增加类型定义
         "vue-shims.d.ts"
     ]
 }
