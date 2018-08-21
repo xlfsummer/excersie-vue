@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        // "module": "es2015",
+        // "moduleResolution": "node",
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        // "target": "es2015"
+        "baseUrl": "./",
+        "paths": {
+            // https://stackoverflow.com/questions/40443806/webpack-resolve-alias-does-not-work-with-typescript
+            "vue": ["../../node_modules/vue/dist/vue.esm.js"]
+        }
+    },
+    "files": [
+        // ts 无法识别 .vue 文件, 所以增加类型定义
+        "vue-shims.d.ts"
+    ]
+}

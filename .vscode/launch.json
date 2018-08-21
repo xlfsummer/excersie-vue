@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "启动程序",
-            "program": "${workspaceFolder}\\生产环境部署\\工具\\webpackRunner.js"
+            "program": "${workspaceFolder}\\工具\\TypeScript支持\\webpackRunner.js"
         }
     ]
 }

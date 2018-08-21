@@ -10,7 +10,8 @@
     "build:deployment": "webpack --config \"./工具/生产环境部署/webpack.config.js\"",
     "test": "mocha-webpack --opts \"./工具/单元测试/mocha-webpack.opts\"",
     "dev.s:baseRounter": "webpack-dev-server --config ./规模化/路由/webpack.config.js",
-    "build:state": "webpack --config ./规模化/状态管理/webpack.config.js"
+    "build:state": "webpack --config ./规模化/状态管理/webpack.config.js",
+    "build:ts": "webpack --config .\\工具\\TypeScript支持\\webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -25,8 +26,7 @@
   "homepage": "https://github.com/xlfsummer/excersie-vue#readme",
   "dependencies": {
     "lodash": "^4.17.10",
-    "vue": "^2.5.17",
-    "webpack": "^4.0.0"
+    "vue": "^2.5.17"
   },
   "devDependencies": {
     "@types/gsap": "^1.19.2",
@@ -45,9 +45,12 @@
     "null-loader": "^0.1.1",
     "vue-loader": "^15.3.0",
     "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "ts-loader": "^4.4.2",
+    "typescript": "^3.0.1"
   },
   "eslintIgnore": [
     "dist/*"

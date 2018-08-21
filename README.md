@@ -35,10 +35,15 @@ npm run build.w:sfc
 npm t
 ```
 
+编译 ts demo
+```bash
+npm run build:ts
+```
+
 运行 规模化/路由
 ```bash
 npm run dev.s:baseRounter
-``` 
+```
 
 运行 状态管理
 ```bash
