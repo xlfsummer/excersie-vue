@@ -3,6 +3,7 @@
 
 在所有之前:
 ```bash
+cd vue
 npm install
 ```
 
