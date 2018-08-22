@@ -1,6 +1,8 @@
 # excersie-vue
 个人学习 Vue 的一些练习
 
+## Vue
+
 在所有之前:
 ```bash
 cd vue
@@ -55,4 +57,14 @@ npm run build:state
 
 # 或编译并 watch 文件
 npm run build:state -- --watch
+```
+
+## Vue-Router
+
+运行项目:
+
+```bash
+cd vue-router
+npm i
+npm run server
 ```
