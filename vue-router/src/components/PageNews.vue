@@ -1,16 +1,18 @@
 <template>
     <section>
-        <ul>
-            <li>News 1</li>
-            <li>News 2</li>
-            <li>News 3</li>
-        </ul>
+        <h2>News</h2>
+        <router-link to="/news">news home</router-link>
+        <router-link to="/news/edit">news edit</router-link>
+        <router-link to="/news/view">new view</router-link>
+        <hr/>
+
+        <!-- 嵌套路由的渲染出口 -->
+        <router-view></router-view>
     </section>
 </template>
 
 <script>
 export default {
-
 }
 </script>
 

@@ -1,14 +1,12 @@
 <template>
-    <transition>
-        <article v-if="load">
-            <h1>{{article.title}}</h1>
-            <time>{{article.time}}</time><span>{{article.author}}</span>
-            <hr/>
-            <div>
-                <p>{{article.content}}</p>
-            </div>
-        </article>
-    </transition>
+    <article v-if="load">
+        <h1>{{article.title}}</h1>
+        <time>{{article.time}}</time><span>{{article.author}}</span>
+        <hr/>
+        <div>
+            <p>{{article.content}}</p>
+        </div>
+    </article>
 </template>
 
 <script>
@@ -35,10 +33,4 @@ export default {
 </script>
 
 <style scoped>
-.v-enter{
-    opacity: 0;
-}
-.v-enter-active {
-    transition: .3s;
-}
 </style>
