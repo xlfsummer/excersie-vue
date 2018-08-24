@@ -1,3 +1,4 @@
+import { RouteConfig } from "vue-router";
 import PageAbout from "./components/PageAbout.vue";
 import PageNews from "./components/PageNews.vue";
 import PageArticle from "./components/PageArticle.vue";
@@ -8,11 +9,13 @@ import NewsEdit from "./components/NewsEdit.vue";
 import NewsView from "./components/NewsView.vue";
 import AboutMain from "./components/AboutMain.vue";
 import AboutInfo from "./components/AboutInfo.vue";
+import PageNotFound from "./components/PageNotFound.vue";
 
-export default [
+export default /** @type {RouteConfig[]} */([
     {
         path: "/",
-        component: PageDefault
+        component: PageDefault,
+        alias: ["/home", "/index"]
     },
     {
         path: "/about",
@@ -68,5 +71,22 @@ export default [
         name: "article-list",
         path: "/article",
         component: PageArticleList
+    },
+    {
+        name: "404",
+        path: "/404",
+        component: PageNotFound
+    },
+    //其它页面
+    {
+        path: "*",
+        redirect: to => {
+            return {
+                path: "/404",
+                query: {
+                    from: to.fullPath
+                }
+            }
+        }
     }
-];
+]);
