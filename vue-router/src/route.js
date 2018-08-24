@@ -3,9 +3,11 @@ import PageNews from "./components/PageNews.vue";
 import PageArticle from "./components/PageArticle.vue";
 import PageArticleList from "./components/PageArticleList.vue";
 import PageDefault from "./components/PageDefault.vue";
-import PageNewsHome from "./components/PageNewsHome.vue";
-import PageNewsEdit from "./components/PageNewsEdit.vue";
-import PageNewsView from "./components/PageNewsView.vue";
+import NewsHome from "./components/NewsHome.vue";
+import NewsEdit from "./components/NewsEdit.vue";
+import NewsView from "./components/NewsView.vue";
+import AboutMain from "./components/AboutMain.vue";
+import AboutInfo from "./components/AboutInfo.vue";
 
 export default [
     {
@@ -14,7 +16,18 @@ export default [
     },
     {
         path: "/about",
-        component: PageAbout
+        component: PageAbout,
+        children: [
+            {
+                path: "",
+                components: {
+                    // 命名视图
+                    // key is the 'name' attr value defined on <router-view>
+                    "main": AboutMain,
+                    "right": AboutInfo
+                }
+            }
+        ]
     },
     {
         path: "/news",
@@ -25,17 +38,17 @@ export default [
             {
                 //match /news
                 path: "",
-                component: PageNewsHome
+                component: NewsHome
             },
             {
                 //match /news/edit
                 path: "edit",
-                component: PageNewsEdit
+                component: NewsEdit
             },
             {
                 //match /news/view
                 path: "/news/view",
-                component: PageNewsView
+                component: NewsView
             }
         ]
     },
@@ -45,6 +58,14 @@ export default [
         component: PageArticle
     },
     {
+        /**
+         * 命名路由
+         * 在 vue 实例中
+         * @example this.$router.push({name: "article-list", param: {
+         *  //...
+         * }})
+         */
+        name: "article-list",
         path: "/article",
         component: PageArticleList
     }
