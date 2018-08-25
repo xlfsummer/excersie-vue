@@ -6,7 +6,7 @@
 在所有之前:
 ```bash
 cd vue
-npm install
+npm i
 ```
 
 运行项目:
