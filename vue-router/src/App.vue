@@ -7,10 +7,11 @@
                 <router-link to="/about">About</router-link>
                 <router-link to="/news">News (Nest Route)</router-link>
                 <router-link to="/article">Article List (Param Match)</router-link>
-                <br/>
-                <input v-model="routeInput" @keypress.enter="go"/><button @click="go">Go</button>
-                <button @click="goPrev">&lt;</button>
-                <button @click="goNext">&gt;</button>
+                <div class="navigator">
+                    <input v-model="routeInput" @keypress.enter="go"/><button @click="go">Go</button>
+                    <button @click="goPrev">&lt;</button>
+                    <button @click="goNext">&gt;</button>
+                </div>
             </nav>
             <hr/>
         </header>
@@ -61,5 +62,17 @@ export default {
            "footer"     auto
 
            /1fr;
+    }
+    nav{
+        display: grid;
+        gird:
+                    auto
+                    auto
+        / auto-flow auto;
+        place-content: flex-start;
+        grid-gap: 20px;
+    }
+    .navigator{
+        grid-area: 2 / 1 / 2 / 5;
     }
 </style>
