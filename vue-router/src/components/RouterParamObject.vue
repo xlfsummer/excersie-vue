@@ -1,13 +1,15 @@
 <template>
     <section>
         <h3>Object</h3>
-        <p>{{$params}}</p>
+        <p>msg: {{msg}}</p>
     </section>
 </template>
 
 <script>
 export default {
-
+    props: {
+        msg: String
+    }
 }
 </script>
 

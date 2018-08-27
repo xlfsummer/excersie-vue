@@ -3,10 +3,13 @@
         <header>
             <h1>Vue-Router Demo</h1>
             <nav>
-                <router-link to="/">Home</router-link>
-                <router-link to="/about">About</router-link>
-                <router-link to="/news">News (Nest Route)</router-link>
-                <router-link to="/article">Article List (Param Match)</router-link>
+                <div class="links">
+                    <router-link to="/">Home</router-link>
+                    <router-link to="/about">About</router-link>
+                    <router-link to="/news">News (Nest Route)</router-link>
+                    <router-link to="/article">Article List (Param Match)</router-link>
+                    <router-link to="/router-param/123/abc">Router Param</router-link>
+                </div>
                 <div class="navigator">
                     <input v-model="routeInput" @keypress.enter="go"/><button @click="go">Go</button>
                     <button @click="goPrev">&lt;</button>
@@ -63,16 +66,15 @@ export default {
 
            /1fr;
     }
-    nav{
-        display: grid;
-        gird:
-                    auto
-                    auto
-        / auto-flow auto;
-        place-content: flex-start;
-        grid-gap: 20px;
+    navigator{
+        }
+    .links{
+        display: flex;
+        flex-flow: row wrap;
+        margin: 0 -10px;
     }
-    .navigator{
-        grid-area: 2 / 1 / 2 / 5;
+    .links > *{
+        margin: 10px;
+        display: block; 
     }
 </style>

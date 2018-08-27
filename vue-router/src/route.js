@@ -82,7 +82,7 @@ export default /** @type {RouteConfig[]} */([
         component: PageRouterParamPassing,
         children: [
             {
-                path: "*",
+                path: ":id/:subid",
                 components: {
                     "boolean": RouterParamBoolean,
                     "function": RouterParamFunction,
@@ -91,7 +91,7 @@ export default /** @type {RouteConfig[]} */([
                 props: {
                     "boolean": true,
                     "object": {
-                        "msg": "defined in route"
+                        "msg": "defined in route.js"
                     },
                     "function": function (param) {
                         let params = Object.assign({
@@ -117,7 +117,7 @@ export default /** @type {RouteConfig[]} */([
                 query: {
                     from: to.fullPath
                 }
-            }
+            };
         }
     }
 ]);

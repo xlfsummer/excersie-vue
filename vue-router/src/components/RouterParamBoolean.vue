@@ -1,15 +1,17 @@
 <template>
     <section>
         <h3>Boolean</h3>
-        <p>{{$params}}</p>
+        <p>id: {{id}}</p>
+        <p>subid: {{subid}}</p>
     </section>
 </template>
 
 <script>
 export default {
-    params: {
-
-    }
+    props: [
+        "id",
+        "subid"
+    ]
 }
 </script>
 
