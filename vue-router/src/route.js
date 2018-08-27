@@ -10,6 +10,10 @@ import NewsView from "./components/NewsView.vue";
 import AboutMain from "./components/AboutMain.vue";
 import AboutInfo from "./components/AboutInfo.vue";
 import PageNotFound from "./components/PageNotFound.vue";
+import PageRouterParamPassing from "./components/PageRouterParamPassing.vue";
+import RouterParamBoolean from "./components/RouterParamBoolean.vue";
+import RouterParamFunction from "./components/RouterParamFunction.vue";
+import RouterParamObject from "./components/RouterParamObject.vue";
 
 export default /** @type {RouteConfig[]} */([
     {
@@ -71,6 +75,33 @@ export default /** @type {RouteConfig[]} */([
         name: "article-list",
         path: "/article",
         component: PageArticleList
+    },
+    {
+        name: "router-param",
+        path: "/router-param",
+        component: PageRouterParamPassing,
+        children: [
+            {
+                path: "*",
+                components: {
+                    "boolean": RouterParamBoolean,
+                    "function": RouterParamFunction,
+                    "object": RouterParamObject
+                },
+                props: {
+                    "boolean": true,
+                    "object": {
+                        "msg": "defined in route"
+                    },
+                    "function": function (param) {
+                        let params = Object.assign({
+                            custom: "Hello World"
+                        }, param.params);
+                        return params;
+                    }
+                }
+            }
+        ]
     },
     {
         name: "404",
