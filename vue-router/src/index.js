@@ -6,11 +6,18 @@ import "./style.css";
 
 Vue.use(VueRouter);
 
+let router = new VueRouter({
+    mode: "history",
+    routes
+});
+
+router.beforeEach(function(to, from, next){
+    console.log(`route change from ${from.fullPath} to ${to.fullPath}`);
+});
+
 new Vue({
     el: "#app",
-    router: new VueRouter({
-        mode: "history",
-        routes
-    }),
+    // histroy 模式需服务端配合
+    router,
     render: h => h(App)
 });
