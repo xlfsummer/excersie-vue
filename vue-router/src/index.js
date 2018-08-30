@@ -12,8 +12,14 @@ let router = new VueRouter({
 });
 
 router.beforeEach(function(to, from, next){
-    console.log(`route change from ${from.fullPath} to ${to.fullPath}`);
+    console.log(`route change from ${from.fullPath} to ${to.fullPath} - before each`);
+    next();
 });
+router.beforeEach(function(to, from, next){
+    console.log(`route change from ${from.fullPath} to ${to.fullPath} - after each`);
+    next();
+});
+
 
 new Vue({
     el: "#app",

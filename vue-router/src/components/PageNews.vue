@@ -13,6 +13,18 @@
 
 <script>
 export default {
+    beforeRouteEnter(to, from, next){
+        console.log(`route change from ${from.fullPath} to ${to.fullPath} - before enter PageNews`);
+        next();
+    },
+    beforeRouteUpdate(to, from, next){
+        console.log(`route change from ${from.fullPath} to ${to.fullPath} - before update PageNews`);
+        next();
+    },
+    beforeRouteLeave(to, from, next){
+        console.log(`route change from ${from.fullPath} to ${to.fullPath} - before leave PageNews`);
+        next();
+    },
 }
 </script>
 
