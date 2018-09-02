@@ -45,7 +45,10 @@ export default /** @type {RouteConfig[]} */([
             {
                 //match /news
                 path: "",
-                component: NewsHome
+                component: NewsHome,
+                meta: {
+                    hasEnterAlert: true
+                }
             },
             {
                 //match /news/edit

@@ -13,6 +13,9 @@ let router = new VueRouter({
 });
 
 router.beforeEach(function(to, from, next){
+    if(to.matched.some(r=>r.meta.hasEnterAlert)){
+        window.alert("enter !");
+    }
     console.log(`route change from ${from.fullPath} to ${to.fullPath} - before each`);
     next();
 });
