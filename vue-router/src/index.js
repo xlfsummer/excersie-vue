@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import routes from "./route.js";
 import App from "./App.vue";
 import "./style.css";
-import routerEventMixin from "./mixin/routerEventMixin.js";
+// import routerEventMixin from "./mixin/routerEventMixin.js";
 
 Vue.use(VueRouter);
 
@@ -13,8 +13,8 @@ let router = new VueRouter({
 });
 
 router.beforeEach(function(to, from, next){
-    if(to.matched.some(r=>r.meta.hasEnterAlert)){
-        window.alert("enter !");
+    if(to.matched.some(r=>r.meta.hasEnterLog)){
+        console.log("enter ! (use route metadata as condition)");
     }
     console.log(`route change from ${from.fullPath} to ${to.fullPath} - before each`);
     next();
@@ -23,7 +23,7 @@ router.afterEach(function(to, from){
     console.log(`route change from ${from.fullPath} to ${to.fullPath} - after each`);
 });
 
-Vue.mixin(routerEventMixin);
+// Vue.mixin(routerEventMixin);
 
 new Vue({
     el: "#app",

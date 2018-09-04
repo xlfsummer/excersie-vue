@@ -21,7 +21,11 @@
 
         <!-- 路由出口 -->
         <!-- 路由匹配到的组件将渲染在这里 -->
-        <router-view></router-view>
+        <div class="main-view-container">
+            <transition name="main-view">
+                <router-view></router-view>
+            </transition>
+        </div>
 
         <footer>
             <hr/>
@@ -75,6 +79,28 @@ export default {
     }
     .links > *{
         margin: 10px;
-        display: block; 
+        display: block;
     }
+
+    .main-view-container{
+        perspective: 1000px;
+        overflow: hidden;
+    }
+
+    .main-view-enter{
+        transform: rotateY(180deg);
+    }
+
+    .main-view-enter-active,
+    .main-view-leave-active{
+        transform-origin: left;
+        transition: .5s;
+        backface-visibility: hidden;
+        position: absolute;
+    }
+
+    .main-view-leave-to{
+        transform: rotateY(-180deg);
+    }
+
 </style>

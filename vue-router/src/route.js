@@ -48,7 +48,7 @@ export default /** @type {RouteConfig[]} */([
                 component: NewsHome,
                 // route metadate 路由元信息
                 meta: {
-                    hasEnterAlert: true
+                    hasEnterLog: true
                 }
             },
             {

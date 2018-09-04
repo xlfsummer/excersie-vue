@@ -7,7 +7,9 @@
         <hr/>
 
         <!-- 嵌套路由的渲染出口 -->
-        <router-view></router-view>
+        <transition name="news-view" mode="out-in">
+            <router-view></router-view>
+        </transition>
     </section>
 </template>
 
@@ -20,6 +22,21 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+section{
+    overflow: hidden;
+}
 
+.news-view-enter{
+    transform: translateX(200px);
+    opacity: 0;
+}
+.news-view-leave-active,
+.news-view-enter-active{
+    transition: .4s;
+}
+.news-view-leave-to{
+    transform: translateX(-200px);
+    opacity: 0;
+}
 </style>
