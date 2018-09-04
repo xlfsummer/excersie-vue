@@ -88,6 +88,7 @@ export default /** @type {RouteConfig[]} */([
             {
                 path: ":id/:subid",
                 components: {
+                    //key: name of router-view
                     "boolean": RouterParamBoolean,
                     "function": RouterParamFunction,
                     "object": RouterParamObject
