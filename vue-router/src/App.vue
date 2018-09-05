@@ -51,6 +51,11 @@ export default {
         goNext(){
             this.$router.go(1);
         }
+    },
+    watch: {
+        '$route'(to, from){
+            console.log("route change")
+        }
     }
 }
 </script>
@@ -71,7 +76,7 @@ export default {
            /1fr;
     }
     navigator{
-        }
+    }
     .links{
         display: flex;
         flex-flow: row wrap;
