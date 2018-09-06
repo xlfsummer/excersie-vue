@@ -23,7 +23,9 @@
         <!-- 路由匹配到的组件将渲染在这里 -->
         <div class="main-view-container">
             <transition name="main-view">
-                <router-view></router-view>
+                <keep-alive>
+                    <router-view></router-view>
+                </keep-alive>
             </transition>
         </div>
 
