@@ -1,5 +1,5 @@
 # excersie-vue
-个人学习 Vue 的一些练习
+个人学习 Vue 的一些练习，整理为 demo
 
 ## Vue
 
