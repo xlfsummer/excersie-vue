@@ -9,7 +9,18 @@ Vue.use(VueRouter);
 
 let router = new VueRouter({
     mode: "history",
-    routes
+    routes,
+    scrollBehavior(to, from, savedPosition){
+        if(to.hash){
+            return {
+                selector: to.hash,
+                // x: 0,
+                // y: 0,
+            };
+        }
+        if(savedPosition)
+            return savedPosition;
+    }
 });
 
 router.beforeEach(function(to, from, next){

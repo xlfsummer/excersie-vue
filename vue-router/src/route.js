@@ -4,6 +4,7 @@ import PageNews from "./components/PageNews.vue";
 import PageArticle from "./components/PageArticle.vue";
 import PageArticleList from "./components/PageArticleList.vue";
 import PageDefault from "./components/PageDefault.vue";
+import PageScrollBehavior from "./components/PageScrollBehavior.vue";
 import NewsHome from "./components/NewsHome.vue";
 import NewsEdit from "./components/NewsEdit.vue";
 import NewsView from "./components/NewsView.vue";
@@ -107,6 +108,10 @@ export default /** @type {RouteConfig[]} */([
                 }
             }
         ]
+    },
+    {
+        path: "/scroll-behavior",
+        component: PageScrollBehavior
     },
     {
         name: "404",
