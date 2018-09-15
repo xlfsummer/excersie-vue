@@ -68,3 +68,11 @@ cd vue-router
 npm i
 npm run server
 ```
+
+编译
+
+```bash
+cd vue-router
+npm i
+npm run build
+```
