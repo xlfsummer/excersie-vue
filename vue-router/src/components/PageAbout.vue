@@ -1,7 +1,11 @@
 <template>
     <section>
         <h2>介绍</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis corporis, neque ea pariatur assumenda commodi aliquid consequuntur libero veniam voluptate placeat, voluptas sapiente accusamus laudantium eligendi dolores culpa reprehenderit facere.</p>
+        <div class="about-panel">
+            <!-- <router-view></router-view> -->
+            <router-view name="main"></router-view>
+            <router-view name="right"></router-view>
+        </div>
     </section>
 </template>
 
@@ -12,5 +16,11 @@ export default {
 </script>
 
 <style>
-
+    .about-panel{
+        display: grid;
+        grid-template:
+            "main" "right"   auto
+            /1fr    200px;
+        grid-gap: 20px;
+    }
 </style>
