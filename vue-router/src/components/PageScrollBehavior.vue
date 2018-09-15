@@ -25,7 +25,7 @@
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut possimus odio, dolor optio rerum labore quas itaque aspernatur officia dolorem quaerat cupiditate nostrum ipsum quo assumenda reprehenderit animi molestias magnam!</p>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut possimus odio, dolor optio rerum labore quas itaque aspernatur officia dolorem quaerat cupiditate nostrum ipsum quo assumenda reprehenderit animi molestias magnam!</p>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut possimus odio, dolor optio rerum labore quas itaque aspernatur officia dolorem quaerat cupiditate nostrum ipsum quo assumenda reprehenderit animi molestias magnam!</p>
-    </article>    
+    </article>
 </template>
 
 <script>
