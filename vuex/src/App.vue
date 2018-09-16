@@ -91,6 +91,7 @@ export default {
 
     .v-enter-active,
     .v-leave-active{
+        transform-origin: top;
         backface-visibility: hidden;
         transition: .5s;
         position: absolute;

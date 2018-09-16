@@ -4,7 +4,8 @@
         <ol>
             <li><router-link to="/">Start</router-link></li>
             <li><router-link to="/demo-state">demo-state</router-link></li>
-            <li><router-link to="/demo-getter">demo-getter</router-link></li>
+            <li><router-link to="/demo-getter">demo-getter-mutation</router-link></li>
+            <li><router-link to="/demo-action">demo-action</router-link></li>
         </ol>
     </div>
 </template>

@@ -24,7 +24,8 @@ export default {
         add(){
             this.$store.commit("increment");
         }
-    }
+    },
+
 }
 </script>
 
