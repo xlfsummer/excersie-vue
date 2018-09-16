@@ -2,10 +2,9 @@
     <div>
         <h1>Vuex-demo</h1>
         <ol>
-            <li>Lorem ipsum dolor sit am</li>
-            <li>Lorem ipsum dolor sit am</li>
-            <li>Lorem ipsum dolor sit am</li>
-            <li>Lorem ipsum dolor sit am</li>
+            <li><router-link to="/">Start</router-link></li>
+            <li><router-link to="/demo-state">demo-state</router-link></li>
+            <li><router-link to="/demo-getter">demo-getter</router-link></li>
         </ol>
     </div>
 </template>

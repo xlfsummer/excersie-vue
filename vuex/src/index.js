@@ -2,7 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Vuex from "vuex";
 import App from "./App.vue";
+
 import routes from "./route.js";
+import store from "./store/index.js";
 
 import "./main.css";
 
@@ -12,10 +14,10 @@ let router = new VueRouter({
 });
 
 Vue.use(VueRouter);
-Vue.use(Vuex);
 
 new Vue({
     el: "#app",
-    router: router,
+    router,
+    store,
     render: h => h(App)
 });

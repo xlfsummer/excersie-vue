@@ -5,7 +5,9 @@
         </div>
         <div class="main">
             <keep-alive>
-                <router-view name="main"></router-view>
+                <transition>
+                    <component :is="component"></component>
+                </transition>
             </keep-alive>
         </div>
     </div>
@@ -13,10 +15,29 @@
 
 <script>
 import NavSidebar from "./component/NavSidebar.vue";
+import common from "./util/common.js";
+import PageWelcome from "./component/PageWelcome.vue";
 
 export default {
+    prop: {
+        componentParam: {
+            type: String,
+        }
+    },
     components: {
-        NavSidebar
+        NavSidebar,
+        PageWelcome
+    },
+    computed: {
+        component(){
+            let kebab = this.$route.params.componentParam;
+            if(kebab){
+                let camel = common.kebab2camel(kebab);
+                return () => import(`./component/demo/${camel}.vue`);
+            }else{
+                return PageWelcome;
+            }
+        }
     }
 }
 </script>
@@ -42,5 +63,39 @@ export default {
     }
     .main{
         grid-template-areas: "main";
+        padding: 10px;
+        overflow-x: hidden;
+        justify-items: strech;
+        /* max-width: 800px; */
+        /* margin: 0 auto; */
+
+        perspective: 2000px;
+    }
+
+    .v-enter{
+        transform-origin: top;
+        transform: rotateX(-180deg);
+        background: #ccc;
+    }
+    .v-leave-to{
+        transform-origin: top;
+        transform: rotateX(180deg);
+        background: #ccc;
+    }
+
+    .v-enter-to,
+    .v-leave{
+        transform-origin: top;
+        transform: rotateX(0);
+    }
+
+    .v-enter-active,
+    .v-leave-active{
+        backface-visibility: hidden;
+        transition: .5s;
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        box-sizing: border-box;
     }
 </style>

@@ -1,6 +1,6 @@
 <template>
 <div>
-    Hello World
+    Hello, this is a demonstration of vuex.
 </div>
 </template>
 
