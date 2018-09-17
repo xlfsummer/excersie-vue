@@ -48,4 +48,11 @@ let option = {
     }
 };
 
+
+if (module.hot) {
+    module.hot.accept("../../util/common.js", () => {
+
+    });
+}
+
 export default option;

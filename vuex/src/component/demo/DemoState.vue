@@ -24,9 +24,8 @@ export default {
     methods: {
         add(){
             this.$store.commit("counter/increment");
-        }
-    },
-
+        },
+    }
 }
 </script>
 
