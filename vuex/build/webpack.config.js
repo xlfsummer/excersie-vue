@@ -3,6 +3,7 @@ let r = path => require("path").resolve(__dirname, "..", path);
 let VueLoaderPlugin = require("vue-loader").VueLoaderPlugin;
 let MiniCssExtractPlugin = require("mini-css-extract-plugin");
 let CopyWebpackPlugin = require("copy-webpack-plugin");
+let { HotModuleReplacementPlugin } = require("webpack");
 
 /** @type {import("webpack").Configuration & import("webpack-dev-server").Configuration}*/
 var config = {
@@ -24,23 +25,31 @@ var config = {
             {
                 test: /\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    // MiniCssExtractPlugin.loader,
+                    "style-loader",
                     "css-loader"
                 ]
             }
         ]
+    },
+    resolve: {
+        alias: {
+            "@": r("src")
+        }
     },
     plugins: [
         new CopyWebpackPlugin([{
             from: "/src/data/*",
             to: "/dist/data/"
         }]),
-        new MiniCssExtractPlugin({
-            filename: "main.css"
-        }),
-        new VueLoaderPlugin()
+        // new MiniCssExtractPlugin({
+        //     filename: "main.css"
+        // }),
+        new VueLoaderPlugin(),
+        new HotModuleReplacementPlugin()
     ],
     devServer: {
+        hot: true,
         publicPath: "/dist",
         contentBase: r("."),
         historyApiFallback: true

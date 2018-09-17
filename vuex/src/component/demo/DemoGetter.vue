@@ -41,14 +41,14 @@ export default Vue.extend({
     },
     computed: {
         ...mapState({
-            todoList: "todoList"
+            todoList: state => state.todoList.todoList
         }),
-        ...mapGetters({
+        ...mapGetters("todoList", {
             doneTodoList: "doneTodoList",
             doneTodoListLength: "doneTodoListLength" ,
         }),
         todoListStartWith(){
-            return this.$store.getters.todoStartWith(this.todoStartWith);
+            return this.$store.getters["todoList/todoStartWith"](this.todoStartWith);
         }
     },
     methods: {
@@ -57,11 +57,11 @@ export default Vue.extend({
             /** @type {HTMLInputElement} */
             let checkbox = ev.target;
             let done = checkbox.checked;
-            this.$store.commit("toggleTodo", { id, done});
+            this.$store.commit("todoList/toggleTodo", { id, done });
         }
     },
     created(){
-        this.$store.dispatch("loadTodoList");
+        this.$store.dispatch("todoList/loadTodoList");
     }
 });
 </script>

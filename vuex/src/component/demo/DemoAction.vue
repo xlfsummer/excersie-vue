@@ -13,24 +13,27 @@
 
 <script>
 import Vue from "vue";
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 export default Vue.extend({
     data(){
         return {}
     },
     computed: {
-        ...mapState({
+        ...mapState("todoList", {
             todoList: "todoList"
         })
     },
     methods:{
-        ...mapMutations({
+        ...mapMutations("todoList", {
             clear: "clearTodoList"
         }),
-        loadData(){
-            this.$store.dispatch("loadTodoList")
-        }
+        ...mapActions("todoList", {
+            loadData: "loadTodoList"
+        })
+        // loadData(){
+        //     this.$store.dispatch("todoList/loadTodoList")
+        // }
     }
 });
 </script>
