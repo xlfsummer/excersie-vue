@@ -73,25 +73,21 @@ export default {
     }
 
     .v-enter{
-        transform-origin: top;
         transform: rotateX(-180deg);
         background: #ccc;
     }
     .v-leave-to{
-        transform-origin: top;
         transform: rotateX(180deg);
         background: #ccc;
     }
 
     .v-enter-to,
     .v-leave{
-        transform-origin: top;
         transform: rotateX(0);
     }
 
     .v-enter-active,
     .v-leave-active{
-        transform-origin: top;
         backface-visibility: hidden;
         transition: .5s;
         position: absolute;
