@@ -9,6 +9,7 @@
                     <router-link to="/news">News (Nest Route)</router-link>
                     <router-link to="/article">Article List (Param Match)</router-link>
                     <router-link to="/router-param/123/abc">Router Param</router-link>
+                    <router-link to="/scroll-behavior">Scroll Behavior</router-link>
                 </div>
                 <div class="navigator">
                     <input v-model="routeInput" @keypress.enter="go"/><button @click="go">Go</button>
@@ -110,4 +111,7 @@ export default {
         transform: rotateY(-180deg);
     }
 
+    footer{
+        margin-bottom: 10px;
+    }
 </style>

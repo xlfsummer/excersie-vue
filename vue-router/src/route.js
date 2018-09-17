@@ -4,6 +4,7 @@ import PageNews from "./components/PageNews.vue";
 import PageArticle from "./components/PageArticle.vue";
 import PageArticleList from "./components/PageArticleList.vue";
 import PageDefault from "./components/PageDefault.vue";
+// import PageScrollBehavior from "./components/PageScrollBehavior.vue";
 import NewsHome from "./components/NewsHome.vue";
 import NewsEdit from "./components/NewsEdit.vue";
 import NewsView from "./components/NewsView.vue";
@@ -14,6 +15,12 @@ import PageRouterParamPassing from "./components/PageRouterParamPassing.vue";
 import RouterParamBoolean from "./components/RouterParamBoolean.vue";
 import RouterParamFunction from "./components/RouterParamFunction.vue";
 import RouterParamObject from "./components/RouterParamObject.vue";
+
+/** 路由懒加载 */
+let PageScrollBehaviorPromise = () => import(
+    /* webpackChunkName: "scroll-behavior" */
+    "./components/PageScrollBehavior.vue"
+);
 
 export default /** @type {RouteConfig[]} */([
     {
@@ -107,6 +114,11 @@ export default /** @type {RouteConfig[]} */([
                 }
             }
         ]
+    },
+    {
+        path: "/scroll-behavior",
+        component: PageScrollBehaviorPromise
+        // component: PageScrollBehavior
     },
     {
         name: "404",

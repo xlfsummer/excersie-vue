@@ -1,12 +1,12 @@
 # excersie-vue
-个人学习 Vue 的一些练习
+个人学习 Vue 的一些练习，整理为 demo
 
 ## Vue
 
 在所有之前:
 ```bash
 cd vue
-npm install
+npm i
 ```
 
 运行项目:
@@ -67,4 +67,12 @@ npm run build:state -- --watch
 cd vue-router
 npm i
 npm run server
+```
+
+编译
+
+```bash
+cd vue-router
+npm i
+npm run build
 ```
