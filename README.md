@@ -78,6 +78,8 @@ npm run build
 ```
 
 ## Vuex
+```bash
 cd vuex
 npm i
 npm run server
+```
