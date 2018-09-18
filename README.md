@@ -76,3 +76,8 @@ cd vue-router
 npm i
 npm run build
 ```
+
+## Vuex
+cd vuex
+npm i
+npm run server
