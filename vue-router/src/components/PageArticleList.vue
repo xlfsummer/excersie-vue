@@ -1,6 +1,9 @@
 <template>
     <section>
-        <ul>
+        <div v-if="loading">
+            正在加载。。
+        </div>
+        <ul v-else>
             <li v-for="art in articleList" :key="art.id">
                 <router-link :to="'/article/' + art.id">
                     <article>
@@ -15,16 +18,31 @@
 
 <script>
 import axios from "axios";
+import { delay } from "../service/util.js";
 
 export default {
     data(){
         return {
             articleList: [],
+            loading: true
         }
     },
-    async created(){
-        let res = await axios.get("/src/data/article.json")
-        this.articleList = res.data;
+    created(){
+        this.fetchData()
+    },
+    beforeRouteUpdate(){
+        //可以传入分页参数等
+        this.fetchData()
+    },
+    methods: {
+        async fetchData(){
+            this.loading = true;
+            let res = await axios.get("/src/data/article.json")
+            // pretend to be slow
+            await delay(1000)
+            this.loading = false;
+            this.articleList = res.data;
+        }
     }
 }
 </script>

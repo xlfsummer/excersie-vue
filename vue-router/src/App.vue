@@ -24,7 +24,9 @@
         <!-- 路由匹配到的组件将渲染在这里 -->
         <div class="main-view-container">
             <transition name="main-view">
-                <router-view></router-view>
+                <keep-alive>
+                    <router-view></router-view>
+                </keep-alive>
             </transition>
         </div>
 
@@ -76,8 +78,6 @@ export default {
 
            /1fr;
     }
-    navigator{
-    }
     .links{
         display: flex;
         flex-flow: row wrap;
@@ -93,13 +93,16 @@ export default {
         overflow: hidden;
     }
 
+    .main-view-container /deep/ > *{
+        transform-origin: left;
+    }
+
     .main-view-enter{
         transform: rotateY(180deg);
     }
 
     .main-view-enter-active,
     .main-view-leave-active{
-        transform-origin: left;
         transition: .5s;
         backface-visibility: hidden;
         position: absolute;
